@@ -23,15 +23,35 @@ contract testSuite {
         _contract = new HelpeeContract();
     }
 
-    function checkRegisterUser() public {
+    // Test a happy path for the RegisterUser method with all valid parameters
+    function checkRegisterUserSuccess() public {
         // Use 'Assert' methods: https://remix-ide.readthedocs.io/en/latest/assert_library.html
 
-
+        // Define parameters
         address payable _walletAddress = payable(address(this));
         bytes32 _name = "0x00";
 
+        // Call the contract
         uint result = _contract.registerUser(_walletAddress, _name);
+        
+        // Assert expected result
         Assert.ok( result > 0, "Register user should return an ID > 0");
     }
+
+    // Test the RegisterUser method with invalid parameters
+    function checkRegisterUserInvalidInputs() public {
+        // Use 'Assert' methods: https://remix-ide.readthedocs.io/en/latest/assert_library.html
+
+        // Define parameters
+        address payable _walletAddress;
+        bytes32 _name = "0x00";
+
+        // Call the contract
+        uint result = _contract.registerUser(_walletAddress, _name);
+        
+        // Assert expected result
+        Assert.ok( result > 0, "Register user should return an ID > 0");
+    }
+
 }
     

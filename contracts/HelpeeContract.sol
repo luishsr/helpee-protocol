@@ -48,7 +48,7 @@ contract HelpeeContract {
     function registerUser(address payable _walletAddress, bytes32 _name) public returns (uint id) {
 
         // Validate mandatory inputs
-        require(_walletAddress == address(_walletAddress), "Wallet Address is mandatory");
+        require(_walletAddress != address(0), "Wallet Address is mandatory");
         require(_name[0] != 0, "User name is mandatory") ;
         
         // Fills the User struct
