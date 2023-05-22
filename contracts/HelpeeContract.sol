@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+pragma solidity ^0.8.0;
 
 /*
 * The Helpee smart contract implementation allowing users to:
@@ -7,7 +7,7 @@ pragma solidity 0.8.18;
 * 2. Reply to questions
 * 3. Reward answers by sending funds to the author
 */
-contract Helpee {
+contract HelpeeContract {
 
     // Represents an user
     struct User {
